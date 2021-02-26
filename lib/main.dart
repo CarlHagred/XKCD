@@ -42,10 +42,9 @@ class Page1 extends StatelessWidget {
                 );
               },
               textColor: Colors.black,
-
               child: Container(
-                padding: const EdgeInsets.all(10.0),
-                child: const Text('Exposure Models',
+                padding: EdgeInsets.all(10.0),
+                child: Text('Exposure Models',
                   style: TextStyle(
                       fontSize: 40,
                       fontFamily: 'ShadowsIntoLight'
@@ -69,7 +68,7 @@ class Page2 extends StatelessWidget {
         child: PageView(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(84),
+              padding: EdgeInsets.all(84),
               child: Image(
                 image: AssetImage(
                 'images/first.png',
@@ -78,7 +77,7 @@ class Page2 extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(32),
+              padding: EdgeInsets.all(32),
               child: Image(
                 image: AssetImage(
                   'images/second.png',
@@ -87,7 +86,7 @@ class Page2 extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(30),
+              padding: EdgeInsets.all(30),
               child: Image(
                 image: AssetImage(
                   'images/third.png',
@@ -105,10 +104,10 @@ class Page2 extends StatelessWidget {
                 );
               },
               textColor: Colors.black,
-              padding: const EdgeInsets.all(0.0),
+              padding: EdgeInsets.all(0.0),
               child: Container(
-                padding: const EdgeInsets.all(10.0),
-                child: const Text('Return to main screen',
+                padding: EdgeInsets.all(10.0),
+                child: Text('Return to main screen',
                   style: TextStyle(
                       fontSize: 20,
                       fontFamily: 'ShadowsIntoLight'
