@@ -1,14 +1,18 @@
 import 'dart:convert';
-
 import 'package:http/http.dart';
-
-class Api_manager {
+/*
+class APIManager{
   final String url = "http://xkcd.com/info.0.json";
 
   Future getComic() async {
     Response res = await get(url);
     if (res.statusCode == 200) {
-      return (jsonDecode(res.body)["img"]);
+      return await jsonDecode(res.body)["img"] as String;
+    }else{
+      return 'Error';
     }
   }
 }
+
+*/
+
