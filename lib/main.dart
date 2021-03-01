@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:xkcd/api_manager.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,21 +35,23 @@ class Page1 extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
+                Api_manager().getComic();
+                /*
                 Navigator.of(context)
                     .push(
                     MaterialPageRoute(
                         builder: (context) => Page2()
                     )
                 );
+                */
               },
               textColor: Colors.black,
               child: Container(
                 padding: EdgeInsets.all(10.0),
-                child: Text('Exposure Models',
-                  style: TextStyle(
-                      fontSize: 40,
-                      fontFamily: 'ShadowsIntoLight'
-                  ),
+                child: Text(
+                  'Exposure Models',
+                  style:
+                      TextStyle(fontSize: 40, fontFamily: 'ShadowsIntoLight'),
                 ),
               ),
             ),
@@ -71,7 +74,7 @@ class Page2 extends StatelessWidget {
               padding: EdgeInsets.all(84),
               child: Image(
                 image: AssetImage(
-                'images/first.png',
+                  'images/first.png',
                 ),
                 fit: BoxFit.fitWidth,
               ),
@@ -97,21 +100,16 @@ class Page2 extends StatelessWidget {
             RaisedButton(
               onPressed: () {
                 Navigator.of(context)
-                    .push(
-                    MaterialPageRoute(
-                        builder: (context) => Page1()
-                    )
-                );
+                    .push(MaterialPageRoute(builder: (context) => Page1()));
               },
               textColor: Colors.black,
               padding: EdgeInsets.all(0.0),
               child: Container(
                 padding: EdgeInsets.all(10.0),
-                child: Text('Return to main screen',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'ShadowsIntoLight'
-                  ),
+                child: Text(
+                  'Return to main screen',
+                  style:
+                      TextStyle(fontSize: 20, fontFamily: 'ShadowsIntoLight'),
                 ),
               ),
             ),
