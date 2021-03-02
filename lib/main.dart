@@ -4,10 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:xkcd/api_manager.dart';
 
-
 String url;
-
-
 
 void main() {
   runApp(MyApp());
@@ -43,11 +40,7 @@ class Page1 extends StatelessWidget {
             RaisedButton(
               onPressed: () {
                 Navigator.of(context)
-                    .push(
-                    MaterialPageRoute(
-                        builder: (context) => ComicPage()
-                    )
-                );
+                    .push(MaterialPageRoute(builder: (context) => ComicPage()));
               },
               textColor: Colors.black,
               child: Container(
@@ -66,79 +59,58 @@ class Page1 extends StatelessWidget {
   }
 }
 
-class ComicPage extends StatefulWidget{
+class ComicPage extends StatefulWidget {
   @override
   _ComicPageState createState() => _ComicPageState();
 }
 
-class _ComicPageState extends State<ComicPage>{
+class _ComicPageState extends State<ComicPage> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      //decoration: new BoxDecoration(color: Colors.white),
       body: SafeArea(
-
-
-            /*new Padding(
-              padding: EdgeInsets.all(84),
-              child: Image.network(url),
-            ),
-
-             */
-            child: new FutureBuilder(
-                future: getPics(),
-                builder: (context, snapShot){
-                  Map data = snapShot.data;
-                  print('i futurebuilder');
-                  if(snapShot.hasError){
-                    print(snapShot.error);
-                    return Text('Error');
-                  }else if(snapShot.hasData){
-                    return new Center(
-                      child: PageView.builder(
-                          itemCount: 2,
-                          itemBuilder: (context, index){
-                            return new Column(
-                              children: <Widget>[
-                               // new Padding(padding: const EdgeInsets.all(10.0)),
-                                new Container(
-                                  child: new InkWell(
-                                    onTap: (){},
-                                    child: new Image.network(
-                                      '${data['img']}'
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            );
-                          }),
-                      );
-                    }else {
-                    return new Center(child: CircularProgressIndicator(),);
-                  }
-                }),
-            /*
-            new RaisedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Page1()));
-              },
-
-              textColor: Colors.black,
-              padding: EdgeInsets.all(0.0),
-              child: Container(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'Return to main screen',
-                  style:
-                  TextStyle(fontSize: 20, fontFamily: 'ShadowsIntoLight'),
-                ),
-              ),
-            ),
-
-             */
-
-
+        child: new FutureBuilder(
+            future: getPics(),
+            builder: (context, snapShot) {
+              Map data = snapShot.data;
+              if (snapShot.hasError) {
+                print(snapShot.error);
+                return Text('Error');
+              } else if (snapShot.hasData) {
+                return new Center(
+                  child: PageView(
+                    children: <Widget>[
+                      new Container(
+                        child: new InkWell(
+                          onTap: () {},
+                          child: Image.network('${data['img']}'),
+                        ),
+                      ),
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => Page1()));
+                        },
+                        textColor: Colors.black,
+                        padding: EdgeInsets.all(0.0),
+                        child: Container(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(
+                            'Return to main screen',
+                            style: TextStyle(
+                                fontSize: 20, fontFamily: 'ShadowsIntoLight'),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              } else {
+                return new Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            }),
       ),
     );
   }
