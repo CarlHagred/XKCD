@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:xkcd/api_manager.dart';
 
 String url;
 
@@ -121,40 +120,4 @@ Future<Map> getPics() async {
   http.Response response = await http.get(URL);
   return json.decode(response.body);
 }
-/*
-class Page2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: new BoxDecoration(color: Colors.white),
-      child: SafeArea(
-        child: PageView(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(84),
-              child: Image.network(url),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Page1()));
-              },
-              textColor: Colors.black,
-              padding: EdgeInsets.all(0.0),
-              child: Container(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'Return to main screen',
-                  style:
-                      TextStyle(fontSize: 20, fontFamily: 'ShadowsIntoLight'),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
- */
