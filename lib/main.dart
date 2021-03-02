@@ -12,46 +12,48 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      home: Page1(),
+    return MaterialApp(
+      home: HomePage(),
     );
   }
 }
 
-class Page1 extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: new BoxDecoration(color: Colors.white),
-      child: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              'XKCD',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 120,
-                fontFamily: 'ShadowsIntoLight',
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => ComicPage()));
-              },
-              textColor: Colors.black,
-              child: Container(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'This weeks',
-                  style:
-                      TextStyle(fontSize: 40, fontFamily: 'ShadowsIntoLight'),
+    return Scaffold(
+      //decoration: new BoxDecoration(color: Colors.white),
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                'XKCD',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 120,
+                  fontFamily: 'ShadowsIntoLight',
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-          ],
+              RaisedButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => ComicPage()));
+                },
+                textColor: Colors.black,
+                child: Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    'This weeks',
+                    style:
+                        TextStyle(fontSize: 40, fontFamily: 'ShadowsIntoLight'),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -85,10 +87,10 @@ class _ComicPageState extends State<ComicPage> {
                           child: Image.network('${data['img']}'),
                         ),
                       ),
-                      RaisedButton(
+                      FlatButton(
                         onPressed: () {
                           Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => Page1()));
+                              MaterialPageRoute(builder: (context) => HomePage()));
                         },
                         textColor: Colors.black,
                         padding: EdgeInsets.all(0.0),

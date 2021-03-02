@@ -49,5 +49,4 @@ flutter:
               - asset: fonts/ShadowsIntoLight-Regular.ttf
 
     # To add assets to your application, add an assets section, like this:
-    assets:
-        - images/
+
