@@ -53,7 +53,7 @@ class Page1 extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
-                  'Exposure Models',
+                  'This weeks',
                   style:
                       TextStyle(fontSize: 40, fontFamily: 'ShadowsIntoLight'),
                 ),
@@ -89,20 +89,18 @@ class _ComicPageState extends State<ComicPage>{
                 future: getPics(),
                 builder: (context, snapShot){
                   Map data = snapShot.data;
-                  print(data);
                   print('i futurebuilder');
                   if(snapShot.hasError){
                     print(snapShot.error);
                     return Text('Error');
                   }else if(snapShot.hasData){
-
                     return new Center(
-                      child: ListView.builder(
-                          itemCount: data.length,
+                      child: PageView.builder(
+                          itemCount: 2,
                           itemBuilder: (context, index){
                             return new Column(
                               children: <Widget>[
-                                new Padding(padding: const EdgeInsets.all(5.0)),
+                               // new Padding(padding: const EdgeInsets.all(10.0)),
                                 new Container(
                                   child: new InkWell(
                                     onTap: (){},
@@ -125,6 +123,7 @@ class _ComicPageState extends State<ComicPage>{
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => Page1()));
               },
+
               textColor: Colors.black,
               padding: EdgeInsets.all(0.0),
               child: Container(
@@ -148,9 +147,6 @@ class _ComicPageState extends State<ComicPage>{
 Future<Map> getPics() async {
   String URL = 'http://xkcd.com/info.0.json';
   http.Response response = await http.get(URL);
-  print(response);
-  print('i getPics');
-
   return json.decode(response.body);
 }
 /*
