@@ -22,7 +22,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //decoration: new BoxDecoration(color: Colors.white),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -46,7 +45,7 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
-                    'This weeks',
+                    'Current Comic',
                     style:
                         TextStyle(fontSize: 40, fontFamily: 'ShadowsIntoLight'),
                   ),
@@ -71,20 +70,23 @@ class _ComicPageState extends State<ComicPage> {
     return Scaffold(
       body: SafeArea(
         child: new FutureBuilder(
-            future: getPics(),
+            future: getPics('http://xkcd.com/info.0.json'),
             builder: (context, snapShot) {
               Map data = snapShot.data;
               if (snapShot.hasError) {
                 print(snapShot.error);
                 return Text('Error');
               } else if (snapShot.hasData) {
-                return new Center(
+                return Center(
                   child: PageView(
                     children: <Widget>[
-                      new Container(
-                        child: new InkWell(
-                          onTap: () {},
-                          child: Image.network('${data['img']}'),
+                       Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Image.network('${data['img']}'),
+                          ),
                         ),
                       ),
                       FlatButton(
@@ -107,7 +109,7 @@ class _ComicPageState extends State<ComicPage> {
                   ),
                 );
               } else {
-                return new Center(
+                return Center(
                   child: CircularProgressIndicator(),
                 );
               }
@@ -117,8 +119,7 @@ class _ComicPageState extends State<ComicPage> {
   }
 }
 
-Future<Map> getPics() async {
-  String URL = 'http://xkcd.com/info.0.json';
+Future<Map> getPics(String URL) async {
   http.Response response = await http.get(URL);
   return json.decode(response.body);
 }
