@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-String url;
-
 void main() {
   runApp(MyApp());
 }
@@ -36,18 +34,23 @@ class HomePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              RaisedButton(
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.black12,
+                ),
                 onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) => ComicPage()));
                 },
-                textColor: Colors.black,
                 child: Container(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
                     'Current Comic',
-                    style:
-                        TextStyle(fontSize: 40, fontFamily: 'ShadowsIntoLight'),
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: 'ShadowsIntoLight',
+                      color: Colors.black54,
+                    ),
                   ),
                 ),
               ),
@@ -89,19 +92,20 @@ class _ComicPageState extends State<ComicPage> {
                           ),
                         ),
                       ),
-                      FlatButton(
+                      TextButton(
                         onPressed: () {
                           Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) => HomePage()));
                         },
-                        textColor: Colors.black,
-                        padding: EdgeInsets.all(0.0),
                         child: Container(
                           padding: EdgeInsets.all(10.0),
                           child: Text(
                             'Return to main screen',
                             style: TextStyle(
-                                fontSize: 20, fontFamily: 'ShadowsIntoLight'),
+                              fontSize: 20,
+                              fontFamily: 'ShadowsIntoLight',
+                              color: Colors.black87,
+                            ),
                           ),
                         ),
                       ),
