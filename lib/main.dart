@@ -39,8 +39,8 @@ class HomePage extends StatelessWidget {
                   primary: Colors.black12,
                 ),
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => ComicPage()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => ComicPage()));
                 },
                 child: Container(
                   padding: EdgeInsets.all(10.0),
@@ -73,7 +73,7 @@ class _ComicPageState extends State<ComicPage> {
     return Scaffold(
       body: SafeArea(
         child: new FutureBuilder(
-            future: getPics('http://xkcd.com/info.0.json'),
+            future: getPics('https://xkcd.now.sh/?comic=latest'),
             builder: (context, snapShot) {
               Map data = snapShot.data;
               if (snapShot.hasError) {
@@ -83,7 +83,7 @@ class _ComicPageState extends State<ComicPage> {
                 return Center(
                   child: PageView(
                     children: <Widget>[
-                       Container(
+                      Container(
                         child: Padding(
                           padding: const EdgeInsets.all(5.0),
                           child: InkWell(
@@ -94,8 +94,8 @@ class _ComicPageState extends State<ComicPage> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => HomePage()));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomePage()));
                         },
                         child: Container(
                           padding: EdgeInsets.all(10.0),
@@ -123,8 +123,8 @@ class _ComicPageState extends State<ComicPage> {
   }
 }
 
-Future<Map> getPics(String URL) async {
-  http.Response response = await http.get(URL);
+Future<Map> getPics(String url) async {
+  Uri uri = Uri.parse(url);
+  http.Response response = await http.get(uri);
   return json.decode(response.body);
 }
-
