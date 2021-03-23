@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>846898040765-gers84c5v6afvu5jnh3qpj1sodv2u2pe.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.846898040765-gers84c5v6afvu5jnh3qpj1sodv2u2pe</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCzEAknkcboYNTz_LehLNIMPaZTl4ujHFI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>846898040765</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.carlhag.xkcdviewer</string>
+	<key>PROJECT_ID</key>
+	<string>xkcd-view</string>
+	<key>STORAGE_BUCKET</key>
+	<string>xkcd-view.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:846898040765:ios:0a6b63980b963069dcccd4</string>
+</dict>
+</plist>
